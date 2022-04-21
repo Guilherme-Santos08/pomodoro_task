@@ -1,3 +1,5 @@
+import { FiRefreshCw, FiUser, FiXCircle } from 'react-icons/fi'
+
 import {
   Box,
   DropdownMenu,
@@ -27,9 +29,18 @@ export function DropdownMenuDemo() {
           <DropdownMenuLabel>Guilherme Ribeiro</DropdownMenuLabel>
           <DropdownMenuSeparator />
 
-          <DropdownMenuItem>Meu perfil</DropdownMenuItem>
-          <DropdownMenuItem>Atualizações</DropdownMenuItem>
-          <DropdownMenuItem>Sair da Aplicação</DropdownMenuItem>
+          <DropdownMenuItem>
+            <FiUser size={18} />
+            <span>Meu perfil</span>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <FiRefreshCw size={18} />
+            <span>Atualizações</span>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <FiXCircle size={18} />
+            <span>Sair da Aplicação</span>
+          </DropdownMenuItem>
 
           <DropdownMenuArrow offset={12} />
         </DropdownMenuContent>

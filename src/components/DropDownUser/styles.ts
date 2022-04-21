@@ -27,20 +27,20 @@ export const Box = styled.div``
 export const IconButton = styled.button`
   all: unset;
   font-family: inherit;
-  height: 25px;
-  width: 35px;
+  height: 44px;
+  width: 44px;
   border-radius: 6px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: pink;
 
-  background-color: '#ffffff';
+  border-radius: 99rem;
   transition: 0.2s;
   box-shadow: 0 2px 10px black;
 
   img {
+    border: 2px solid ${(props) => props.theme.colors.indigo11};
     border-radius: 99rem;
   }
 `
@@ -61,16 +61,16 @@ export const DropdownMenuContent = styled(DropdownMenuPrimitive.Content)`
 
     &[data-state='open'] {
       &[data-side='top'] {
-        animation-name: slideDownAndFade;
+        animation-name: ${slideDownAndFade};
       }
       &[data-side='right'] {
-        animation-name: slideLeftAndFade;
+        animation-name: ${slideLeftAndFade};
       }
       &[data-side='bottom'] {
-        animation-name: slideUpAndFade;
+        animation-name: ${slideUpAndFade};
       }
       &[data-side='left'] {
-        animation-name: slideRightAndFade;
+        animation-name: ${slideRightAndFade};
       }
     }
   }
@@ -91,6 +91,16 @@ export const DropdownMenuItem = styled(DropdownMenuPrimitive.Item)`
   padding-right: 25px;
   user-select: none;
   transition: background 0.2s, color 0.2s;
+
+  svg,
+  path {
+    color: ${(props) => props.theme.colors.indigo11};
+  }
+
+  span {
+    margin-left: 1rem;
+  }
+
   &[data-disabled] {
     color: red;
     pointer-events: none;
@@ -122,4 +132,3 @@ export const DropdownMenuArrow = styled(DropdownMenuPrimitive.Arrow)`
 
 export const DropdownMenu = styled(DropdownMenuPrimitive.Root)``
 export const DropdownMenuTrigger = styled(DropdownMenuPrimitive.Trigger)``
-export const DropdownMenuRadioGroup = styled(DropdownMenuPrimitive.RadioGroup)``

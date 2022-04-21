@@ -1,4 +1,5 @@
 import DropdownMenuDemo from '../DropDownUser'
+
 import { Container } from './styles'
 
 export function Header() {
@@ -9,7 +10,6 @@ export function Header() {
 
         <div className="header__user">
           {/* <button type="button">Resetar Sessão</button> */}
-
           <DropdownMenuDemo />
         </div>
       </div>

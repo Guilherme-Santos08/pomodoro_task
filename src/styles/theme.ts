@@ -1,10 +1,11 @@
-import { grayDark, sandDark, violetDark } from '@radix-ui/colors'
+import { grayDark, indigoDark, sandDark, violetDark } from '@radix-ui/colors'
 
 const theme = {
   colors: {
     ...sandDark,
     ...grayDark,
     ...violetDark,
+    ...indigoDark,
   },
 }
 

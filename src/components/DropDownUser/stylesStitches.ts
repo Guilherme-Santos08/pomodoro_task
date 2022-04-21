@@ -69,19 +69,6 @@ const itemStyles = {
 }
 
 const StyledItem = styled(DropdownMenuPrimitive.Item, { ...itemStyles })
-const StyledCheckboxItem = styled(DropdownMenuPrimitive.CheckboxItem, {
-  ...itemStyles,
-})
-const StyledRadioItem = styled(DropdownMenuPrimitive.RadioItem, {
-  ...itemStyles,
-})
-const StyledTriggerItem = styled(DropdownMenuPrimitive.TriggerItem, {
-  '&[data-state="open"]': {
-    backgroundColor: violet.violet4,
-    color: violet.violet11,
-  },
-  ...itemStyles,
-})
 
 const StyledLabel = styled(DropdownMenuPrimitive.Label, {
   paddingLeft: 25,
@@ -112,13 +99,9 @@ const StyledArrow = styled(DropdownMenuPrimitive.Arrow, {
 // Exports
 export const DropdownMenu = DropdownMenuPrimitive.Root
 export const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger
+
 export const DropdownMenuContent = StyledContent
 export const DropdownMenuItem = StyledItem
-export const DropdownMenuCheckboxItem = StyledCheckboxItem
-export const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup
-export const DropdownMenuRadioItem = StyledRadioItem
-export const DropdownMenuItemIndicator = StyledItemIndicator
-export const DropdownMenuTriggerItem = StyledTriggerItem
 export const DropdownMenuLabel = StyledLabel
 export const DropdownMenuSeparator = StyledSeparator
 export const DropdownMenuArrow = StyledArrow
