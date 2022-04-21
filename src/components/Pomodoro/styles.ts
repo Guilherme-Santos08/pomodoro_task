@@ -1,0 +1,78 @@
+import styled from 'styled-components'
+
+export const Container = styled.div`
+  text-align: center;
+
+  max-width: 720px;
+  width: 100%;
+  padding: 2rem;
+
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  /* 
+  box-shadow: ${(props) => props.theme.colors.indigo11} -5px 5px,
+    ${(props) => props.theme.colors.indigo10}-10px 10px,
+    ${(props) => props.theme.colors.indigo9} -15px 15px; */
+`
+
+export const Content = styled.div`
+  margin-top: 4.75rem;
+
+  div + div {
+    margin-top: 4.75rem;
+  }
+
+  .count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 250px;
+    height: 250px;
+    border-radius: 999px;
+    margin: 0 auto;
+    border: 1px solid ${(props) => props.theme.colors.gray4};
+    p + p {
+      margin-top: 1.5rem;
+    }
+
+    time {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 1120px) {
+    margin-top: 4rem;
+  }
+
+  @media (max-width: 600px) {
+    margin-top: 2rem;
+  }
+
+  .count {
+    width: 200px;
+    height: 200px;
+  }
+`
+
+export const Button = styled.button`
+  color: #fff;
+  padding: 0.75rem 0;
+
+  width: 150px;
+  background-color: ${(props) => props.theme.colors.indigo9};
+
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: background 0.2s, transform 0.2s;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.indigo8};
+  }
+
+  &:active {
+    transform: scale(0.9);
+    box-shadow: none;
+  }
+`
