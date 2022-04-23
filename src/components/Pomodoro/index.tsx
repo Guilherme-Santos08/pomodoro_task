@@ -1,4 +1,4 @@
-import { FiRefreshCcw } from 'react-icons/fi'
+import Head from 'next/head'
 import { useTime } from '../../hooks/useTime'
 import { Button, Container, Content } from './styles'
 
@@ -9,35 +9,46 @@ export function Pomodoro() {
     handleResetPomodoro,
     handleStartAndPause,
     activePomodoro,
+    mode,
+    countRest,
+    maxRest,
   } = useTime()
+  const timer = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(
+    2,
+    '0'
+  )}`
   return (
-    <Container>
-      <h1>Construindo Pomodoro</h1>
-      <Content>
-        <div className="count">
-          <p>1/4</p>
-          <p>
-            <time>
-              {String(minutes).padStart(2, '0')}:
-              {String(seconds).padStart(2, '0')}
-            </time>
-          </p>
-          <p>Foco</p>
-        </div>
+    <>
+      <Head>
+        <title>{`${timer} - ${mode}`}</title>
+      </Head>
+      <div />
+      <Container>
+        <h1>Construindo Pomodoro</h1>
+        <Content>
+          <div className="count">
+            <p>
+              {countRest}/{maxRest}
+            </p>
+            <p className="count__time">
+              <time>{timer}</time>
+            </p>
+            <p className="count__mode">{mode}</p>
+          </div>
 
-        <div className="buttons">
-          <Button
-            whatTheme="refresh"
-            type="button"
-            onClick={handleResetPomodoro}
-          >
-            <FiRefreshCcw />
-          </Button>
-          <Button whatTheme="" type="button" onClick={handleStartAndPause}>
-            {activePomodoro ? 'Pausar' : 'Iniciar'}
-          </Button>
-        </div>
-      </Content>
-    </Container>
+          <div className="buttons">
+            <Button
+              whatTheme=""
+              type="button"
+              onClick={
+                activePomodoro ? handleResetPomodoro : handleStartAndPause
+              }
+            >
+              {activePomodoro ? 'Parar' : 'Iniciar'}
+            </Button>
+          </div>
+        </Content>
+      </Container>
+    </>
   )
 }

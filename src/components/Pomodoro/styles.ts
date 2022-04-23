@@ -28,17 +28,24 @@ export const Content = styled.div`
     align-items: center;
     justify-content: center;
 
-    width: 250px;
-    height: 250px;
+    width: 260px;
+    height: 260px;
     border-radius: 999px;
     margin: 0 auto;
     border: 1px solid ${(props) => props.theme.colors.gray4};
-    p + p {
-      margin-top: 1.5rem;
+
+    &__time {
+      margin: 2rem 0;
     }
 
     time {
-      font-size: 2rem;
+      font-weight: bold;
+      font-size: 2.1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      font-weight: normal;
     }
   }
 
@@ -48,11 +55,11 @@ export const Content = styled.div`
 
   @media (max-width: 600px) {
     margin-top: 2rem;
-  }
 
-  .count {
-    width: 200px;
-    height: 200px;
+    .count {
+      width: 220px;
+      height: 220px;
+    }
   }
 
   .buttons {
