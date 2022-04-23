@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Container = styled.div`
   text-align: center;
@@ -54,9 +54,22 @@ export const Content = styled.div`
     width: 200px;
     height: 200px;
   }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    button + button {
+      margin-left: 1.2rem;
+    }
+  }
 `
 
-export const Button = styled.button`
+type ButtonProps = {
+  whatTheme: string
+}
+
+export const Button = styled.button<ButtonProps>`
   color: #fff;
   padding: 0.75rem 0;
 
@@ -75,4 +88,18 @@ export const Button = styled.button`
     transform: scale(0.9);
     box-shadow: none;
   }
+
+  ${({ whatTheme }) =>
+    whatTheme === 'refresh' &&
+    css`
+      font-size: 1.5rem;
+      background-color: transparent;
+      box-shadow: none;
+      width: auto;
+      padding: 0;
+      color: #ffffff;
+      &:hover {
+        background-color: transparent;
+      }
+    `}
 `
