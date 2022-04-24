@@ -83,14 +83,14 @@ const StyledSeparator = styled(DropdownMenuPrimitive.Separator, {
   margin: 5,
 })
 
-const StyledItemIndicator = styled(DropdownMenuPrimitive.ItemIndicator, {
-  position: 'absolute',
-  left: 0,
-  width: 25,
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-})
+// const StyledItemIndicator = styled(DropdownMenuPrimitive.ItemIndicator, {
+//   position: 'absolute',
+//   left: 0,
+//   width: 25,
+//   display: 'inline-flex',
+//   alignItems: 'center',
+//   justifyContent: 'center',
+// })
 
 const StyledArrow = styled(DropdownMenuPrimitive.Arrow, {
   fill: 'white',
