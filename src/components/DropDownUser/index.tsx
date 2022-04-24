@@ -1,4 +1,4 @@
-import Image from 'next/image'
+/* eslint-disable @next/next/no-img-element */
 import { FiRefreshCw, FiUser, FiXCircle } from 'react-icons/fi'
 
 import {
@@ -19,7 +19,7 @@ export function DropdownMenuDemo() {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <IconButton aria-label="Customise options">
-            <Image
+            <img
               src="https://avatars.githubusercontent.com/u/68301964?v=4"
               alt="Foto do usuario"
             />
