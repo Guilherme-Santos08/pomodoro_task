@@ -13,6 +13,10 @@ export const Container = styled.div`
   box-shadow: ${(props) => props.theme.colors.indigo11} -5px 5px,
     ${(props) => props.theme.colors.indigo10}-10px 10px,
     ${(props) => props.theme.colors.indigo9} -15px 15px; */
+
+  @media (max-width: 1180px) {
+    margin: 0 auto;
+  }
 `
 
 export const Content = styled.div`

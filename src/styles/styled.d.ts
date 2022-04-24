@@ -11,6 +11,7 @@ declare module 'styled-components' {
       gray5: string
       gray7: string
       gray10: string
+      gray11: string
       gray12: string
 
       violet7: string

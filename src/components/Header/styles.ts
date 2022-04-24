@@ -21,7 +21,7 @@ export const Container = styled.header`
       button {
         font-size: 1.2rem;
         color: ${(props) => props.theme.colors.gray12};
-        margin-right: 1.5rem;
+        /* margin-right: 1.5rem; */
         background-color: transparent;
       }
       &--info {

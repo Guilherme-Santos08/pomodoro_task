@@ -38,6 +38,15 @@ export default createGlobalStyle`
     /* 62.5% */
   }
 
+  main {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1300px;
+    width: 100%;
+    margin: 2rem auto 0;
+    padding: 1rem;
+  }
+
   @media (max-width: 1080px) {
     html {
       font-size: 93.75%; // 0.9375 * 16px = 15px;
