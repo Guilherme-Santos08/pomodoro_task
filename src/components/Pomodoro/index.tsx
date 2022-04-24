@@ -40,6 +40,7 @@ export function Pomodoro() {
             <Button
               whatTheme=""
               type="button"
+              className={activePomodoro ? 'pomodoro-active' : ''}
               onClick={
                 activePomodoro ? handleResetPomodoro : handleStartAndPause
               }

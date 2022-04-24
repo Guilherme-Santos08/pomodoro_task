@@ -46,7 +46,19 @@ export function TimeContextProvider({ children }: props) {
     clearTimeout(countdownTimeout)
   }
 
+  const notificationPomodoro = (title: string, body: string) => {
+    if (Notification.permission === 'granted') {
+      const notification = new Notification(title, {
+        body,
+        silent: false,
+      })
+      return notification
+    }
+    return false
+  }
+
   const handleResetPomodoro = () => {
+    new Audio('/mouse_click.mp3').play()
     switch (mode) {
       case 'Foco':
         configResetPomodoro(pomodoroTime)
@@ -66,34 +78,49 @@ export function TimeContextProvider({ children }: props) {
   }
 
   const handleStartAndPause = () => {
+    new Audio('/mouse_click.mp3').play()
     setActivePomodoro(!activePomodoro)
   }
 
   useEffect(() => {
+    Notification.requestPermission()
+  }, [])
+
+  useEffect(() => {
     if (secondsAmount === 0) {
+      new Audio('/digital_clock.mp3').play()
+
       switch (mode) {
         case 'Foco':
           setCountRest((state) => state + 1)
           if (countRest >= maxRest - 1) {
             configPomodoro('Descanso longo', restLongTime)
+            notificationPomodoro(
+              'Descanço Longo',
+              'Vamos fazer uma pausa longa?'
+            )
           } else {
             configPomodoro('Descanso', restTime)
+            notificationPomodoro('Descanço', 'Vamos fazer uma pequena pausa?')
           }
           break
 
         case 'Descanso':
           configPomodoro('Foco', pomodoroTime)
+          notificationPomodoro('Foco', 'Hora de focar')
           break
 
         case 'Descanso longo':
           configPomodoro('Foco', pomodoroTime)
           setCountRest(0)
+          notificationPomodoro('Foco', 'Hora de focar')
           break
 
         default:
           break
       }
     }
+
     if (activePomodoro && secondsAmount > 0) {
       countdownTimeout = setTimeout(() => {
         setSecondsAmount((state) => state - 1)

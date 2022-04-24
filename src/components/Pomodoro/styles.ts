@@ -84,15 +84,18 @@ export const Button = styled.button<ButtonProps>`
   background-color: ${(props) => props.theme.colors.indigo9};
 
   border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  transition: background 0.2s, transform 0.2s;
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+  border: none;
+
+  box-shadow: ${(props) => props.theme.colors.indigo8} 0px 6px 0px;
+  transition: background 0.2s, color 0.5s ease-in-out 0s;
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.indigo8};
+    background-color: ${(props) => props.theme.colors.indigo10};
   }
 
-  &:active {
-    transform: scale(0.9);
+  &.pomodoro-active {
+    transform: translateY(6px);
     box-shadow: none;
   }
 
