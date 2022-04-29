@@ -29,7 +29,7 @@ export function TimeContextProvider({ children }: props) {
 
   const [secondsAmount, setSecondsAmount] = useState(pomodoroTime * 60)
   const [mode, setMode] = useState('Foco')
-  const [countRest, setCountRest] = useState(1)
+  const [countRest, setCountRest] = useState(3)
 
   const [activePomodoro, setActivePomodoro] = useState(false)
   const minutes = Math.floor(secondsAmount / 60)
@@ -91,7 +91,7 @@ export function TimeContextProvider({ children }: props) {
         break
 
       case 'Descanso longo':
-        setCountRest(4)
+        setCountRest(maxRest)
         break
 
       default:
@@ -139,9 +139,12 @@ export function TimeContextProvider({ children }: props) {
           break
 
         case 'Descanso longo':
-          configPomodoro('Foco', pomodoroTime)
-          setCountRest(0)
-          notificationPomodoro('Foco', 'Hora de focar')
+          configPomodoro('Descanso longo', pomodoroTime)
+          setCountRest(maxRest)
+          notificationPomodoro(
+            'Acabou',
+            'Parabéns, você acaba de finalizar sua tarefa'
+          )
           break
 
         default:
@@ -155,6 +158,15 @@ export function TimeContextProvider({ children }: props) {
       }, 1000)
     }
   }, [secondsAmount, activePomodoro])
+
+  useEffect(() => {
+    // eslint-disable-next-line consistent-return
+    window.onbeforeunload = () => {
+      if (activePomodoro) {
+        return 'Você perderá o progresso do countdown até aqui, tem certeza?'
+      }
+    }
+  }, [activePomodoro])
 
   const value = useMemo(
     () => ({
