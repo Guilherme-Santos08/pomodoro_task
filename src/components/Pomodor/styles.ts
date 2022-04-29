@@ -62,6 +62,7 @@ export const Container = styled.div`
     }
 
     &__buttons {
+      position: relative;
       display: flex;
       align-items: flex-end;
 
@@ -99,6 +100,10 @@ export const Button = styled.button<ButtonProps>`
     css`
       font-size: 1.5rem;
       color: #ffffff;
+
+      position: absolute;
+      right: -2.2rem;
+      bottom: 0;
 
       width: auto;
       background-color: transparent;
