@@ -23,7 +23,7 @@ export const Container = styled.div`
     width: 100%;
     height: 30px;
     padding: 1.85rem;
-    border-bottom: 1px solid green;
+    border-bottom: 1px solid rgb(181 28 28 / 59%);
 
     > p {
       font-size: 1rem;
