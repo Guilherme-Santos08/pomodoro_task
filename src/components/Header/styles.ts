@@ -1,35 +1,41 @@
 import styled from 'styled-components'
 
-export const Container = styled.header`
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 1rem;
-  > div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 70px;
+export const Container = styled.div`
+  box-shadow: 0 0 0 1px hsl(243 4.9% 18.8%);
 
-    > p {
-      font-size: 1.7rem;
-      font-weight: bold;
-    }
+  header {
+    /* max-width: 1300px; */
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1.5rem;
 
-    .header__user {
+    > div {
       display: flex;
-      align-items: flex-start;
-      button {
-        font-size: 1.2rem;
-        color: ${(props) => props.theme.colors.gray12};
-        /* margin-right: 1.5rem; */
-        background-color: transparent;
-      }
-      &--info {
-        width: 35px;
-        height: 35px;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
 
-        img {
-          border-radius: 999px;
+      > a {
+        font-size: 1.5rem;
+        font-weight: normal;
+      }
+
+      .header__user {
+        display: flex;
+        align-items: flex-start;
+        button {
+          font-size: 1.2rem;
+          color: ${(props) => props.theme.colors.gray12};
+          /* margin-right: 1.5rem; */
+          background-color: transparent;
+        }
+        &--info {
+          width: 35px;
+          height: 35px;
+
+          img {
+            border-radius: 999px;
+          }
         }
       }
     }

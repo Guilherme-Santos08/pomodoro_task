@@ -32,7 +32,7 @@ export default createGlobalStyle`
 
   body {
     font-family: 'Inter', sans-serif;
-    background-color: ${(props) => props.theme.colors.gray1};
+    background-color: ${(props) => props.theme.colors.indigo1};
     color: ${(props) => props.theme.colors.gray12};
     font-size: 16px;
     /* 62.5% */

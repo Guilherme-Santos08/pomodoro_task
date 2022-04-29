@@ -16,6 +16,7 @@ declare module 'styled-components' {
 
       violet7: string
 
+      indigo1: string
       indigo8: string
       indigo9: string
       indigo10: string

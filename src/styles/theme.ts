@@ -5,6 +5,9 @@ import {
   redDark,
   sandDark,
   violetDark,
+  skyDark,
+  blueDark,
+  mauveDark,
 } from '@radix-ui/colors'
 
 const theme = {
@@ -15,6 +18,9 @@ const theme = {
     ...indigoDark,
     ...greenDark,
     ...redDark,
+    ...skyDark,
+    ...blueDark,
+    ...mauveDark,
   },
 }
 
