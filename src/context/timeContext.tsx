@@ -12,7 +12,8 @@ type timeContextType = {
   mode: string
   activePomodoro: boolean
   handleResetPomodoro: () => void
-  handleStartAndPause: () => void
+  handleStartAndStop: () => void
+  handleSkipMode: () => void
 }
 
 export const TimeContext = createContext({} as timeContextType)
@@ -28,7 +29,7 @@ export function TimeContextProvider({ children }: props) {
 
   const [secondsAmount, setSecondsAmount] = useState(pomodoroTime * 60)
   const [mode, setMode] = useState('Foco')
-  const [countRest, setCountRest] = useState(3)
+  const [countRest, setCountRest] = useState(1)
 
   const [activePomodoro, setActivePomodoro] = useState(false)
   const minutes = Math.floor(secondsAmount / 60)
@@ -44,17 +45,6 @@ export function TimeContextProvider({ children }: props) {
     setSecondsAmount(timer * 60)
     setActivePomodoro(false)
     clearTimeout(countdownTimeout)
-  }
-
-  const notificationPomodoro = (title: string, body: string) => {
-    if (Notification.permission === 'granted') {
-      const notification = new Notification(title, {
-        body,
-        silent: false,
-      })
-      return notification
-    }
-    return false
   }
 
   const handleResetPomodoro = () => {
@@ -77,9 +67,47 @@ export function TimeContextProvider({ children }: props) {
     }
   }
 
-  const handleStartAndPause = () => {
+  const handleStartAndStop = () => {
     new Audio('/mouse_click.mp3').play()
     setActivePomodoro(!activePomodoro)
+  }
+
+  const handleSkipMode = () => {
+    handleStartAndStop()
+    setCountRest((state) => state + 1)
+    clearTimeout(countdownTimeout)
+
+    switch (mode) {
+      case 'Foco':
+        if (countRest >= maxRest - 1) {
+          configPomodoro('Descanso longo', restLongTime)
+        } else {
+          configPomodoro('Descanso', restTime)
+        }
+        break
+
+      case 'Descanso':
+        configPomodoro('Foco', pomodoroTime)
+        break
+
+      case 'Descanso longo':
+        setCountRest(4)
+        break
+
+      default:
+        break
+    }
+  }
+
+  const notificationPomodoro = (title: string, body: string) => {
+    if (Notification.permission === 'granted') {
+      const notification = new Notification(title, {
+        body,
+        silent: false,
+      })
+      return notification
+    }
+    return false
   }
 
   useEffect(() => {
@@ -136,10 +164,11 @@ export function TimeContextProvider({ children }: props) {
       maxRest,
       countRest,
       handleResetPomodoro,
-      handleStartAndPause,
+      handleStartAndStop,
+      handleSkipMode,
       activePomodoro,
     }),
-    [minutes, seconds, handleResetPomodoro, handleStartAndPause, activePomodoro]
+    [minutes, seconds, handleResetPomodoro, handleStartAndStop, activePomodoro]
   )
 
   return <TimeContext.Provider value={value}>{children}</TimeContext.Provider>

@@ -1,9 +1,10 @@
+import { Pomodoro } from '../components/Pomodor'
 import { Container } from '../styles/pages/Home'
 
 export default function Home() {
   return (
     <Container>
-      <h1>Oi</h1>
+      <Pomodoro />
     </Container>
   )
 }
