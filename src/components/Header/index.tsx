@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { ChooseTask } from '../ChooseTask'
 import DropdownMenuDemo from '../DropDownUser'
 
 import { Container } from './styles'
@@ -13,6 +14,7 @@ export function Header() {
           </Link>
 
           <div className="header__user">
+            <ChooseTask />
             {/* <button type="button">Resetar Sessão</button> */}
             <DropdownMenuDemo />
           </div>

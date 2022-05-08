@@ -4,13 +4,9 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   padding: 2rem 1rem;
-  background-color: ${(props) => props.theme.colors.gray1};
+  background-color: ${(props) => props.theme.colors.gray5};
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  @media (max-width: 1180px) {
-    position: fixed;
-    right: 0;
-    top: 4rem;
-  }
+  border-radius: 8px;
 `
 
 export const RenderTasks = styled.div`

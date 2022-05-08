@@ -23,6 +23,11 @@ export const Container = styled.div`
       .header__user {
         display: flex;
         align-items: flex-start;
+
+        div + div {
+          margin-left: 2rem;
+        }
+
         button {
           font-size: 1.2rem;
           color: ${(props) => props.theme.colors.gray12};
