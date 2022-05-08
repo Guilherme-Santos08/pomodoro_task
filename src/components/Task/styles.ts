@@ -1,12 +1,27 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
+  min-width: 320px;
   width: 100%;
   height: 100%;
   padding: 2rem 1rem;
   background-color: ${(props) => props.theme.colors.gray5};
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 8px;
+
+  position: relative;
+
+  button {
+    position: absolute;
+    bottom: 1rem;
+
+    background-color: ${(props) => props.theme.colors.gray3};
+    color: #ffffff;
+    width: 90%;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px #ffff dashed;
+  }
 `
 
 export const RenderTasks = styled.div`
@@ -58,4 +73,8 @@ export const RenderTasks = styled.div`
       }
     }
   }
+`
+
+export const RenderCreateTasks = styled.div`
+  margin-top: 4rem;
 `
