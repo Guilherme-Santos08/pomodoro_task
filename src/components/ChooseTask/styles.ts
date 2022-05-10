@@ -46,7 +46,7 @@ export const IconButton = styled.button`
 
 export const ChooseTaskContent = styled(DropdownMenuPrimitive.Content)`
   min-width: 220px;
-  height: 60vh;
+  height: 100%;
   margin-top: 0.5rem;
   /* box-shadow: 0px 10px 38px -10px rgba(22, 23, 24, 0.35),
     0px 10px 20px -15px rgba(22, 23, 24, 0.2); */

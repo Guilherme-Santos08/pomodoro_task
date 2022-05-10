@@ -47,6 +47,17 @@ export default createGlobalStyle`
     padding: 1rem;
   }
 
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+  }
+
   @media (max-width: 1080px) {
     html {
       font-size: 93.75%; // 0.9375 * 16px = 15px;

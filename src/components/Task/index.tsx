@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState } from 'react'
 import { Container, RenderCreateTasks, RenderTasks } from './styles'
 
@@ -37,14 +38,69 @@ export function Task() {
               {/* <button type="button">{'|>'}</button> */}
             </div>
           </div>
+          <button type="button" onClick={handleChangeComponente}>
+            Adicionar nova tarefa
+          </button>
         </RenderTasks>
       ) : (
-        <RenderCreateTasks>Teste</RenderCreateTasks>
-      )}
+        <RenderCreateTasks>
+          <div className="input-box">
+            <label htmlFor="taskName" className="sr-only">
+              Nome da tarefa
+            </label>
+            <input
+              id="taskName"
+              type="text"
+              placeholder="Criar uma Tarefa"
+              required
+            />
+          </div>
 
-      <button type="button" onClick={handleChangeComponente}>
-        Adicionar nova tarefa
-      </button>
+          <div className="priority">
+            <h3>Prioridade da tarefa</h3>
+            <div className="priority__select">
+              <button type="button">Baixa</button>
+              <button type="button">Media</button>
+              <button type="button" className="green">
+                Alta
+              </button>
+            </div>
+          </div>
+
+          <div className="settings">
+            <h3>Configuração do Pomodoro</h3>
+            <div>
+              <p>Tempo de foco</p>
+              <p>20 min</p>
+            </div>
+            <div>
+              <p>Pausa curta</p>
+              <p>5 min</p>
+            </div>
+            <div>
+              <p>Pausa longa</p>
+              <p>15 min</p>
+            </div>
+            <div>
+              <p>Sessões</p>
+              <p>4 Intervalor</p>
+            </div>
+          </div>
+
+          <div className="btns">
+            <button type="button" onClick={handleChangeComponente}>
+              Cacelar
+            </button>
+            <button
+              type="button"
+              onClick={handleChangeComponente}
+              className="save"
+            >
+              Salvar
+            </button>
+          </div>
+        </RenderCreateTasks>
+      )}
     </Container>
   )
 }
