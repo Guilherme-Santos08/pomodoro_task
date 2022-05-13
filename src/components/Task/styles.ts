@@ -97,41 +97,6 @@ export const RenderCreateTasks = styled.div`
 
   .priority {
     margin-top: 2rem;
-
-    .priority__select {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      margin-top: 0.5rem;
-      padding: 0.75rem;
-      background-color: ${(props) => props.theme.colors.gray7};
-
-      border-radius: 8px;
-      border: 2px solid ${(props) => props.theme.colors.gray9};
-
-      button {
-        font-size: 0.9rem;
-        width: 88px;
-        background-color: ${(props) => props.theme.colors.gray9};
-        padding: 0.4rem 0;
-        color: ${(props) => props.theme.colors.gray12};
-        border-radius: 6px;
-
-        &.green {
-          background-color: ${(props) => props.theme.colors.green7};
-          border: 1px solid ${(props) => props.theme.colors.green10};
-        }
-        &.yellow {
-          background-color: ${(props) => props.theme.colors.yellow7};
-          border: 1px solid ${(props) => props.theme.colors.yellow10};
-        }
-        &.red {
-          background-color: ${(props) => props.theme.colors.red7};
-          border: 1px solid ${(props) => props.theme.colors.red10};
-        }
-      }
-    }
   }
 
   .settings {

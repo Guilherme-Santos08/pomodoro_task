@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState } from 'react'
 import { Container, RenderCreateTasks, RenderTasks } from './styles'
+import { TooglePriority } from './TooglePriority'
 
 export function Task() {
   const [changeTask, setChangeTask] = useState(false)
@@ -58,13 +59,7 @@ export function Task() {
 
           <div className="priority">
             <h3>Prioridade da tarefa</h3>
-            <div className="priority__select">
-              <button type="button">Baixa</button>
-              <button type="button">Media</button>
-              <button type="button" className="green">
-                Alta
-              </button>
-            </div>
+            <TooglePriority />
           </div>
 
           <div className="settings">

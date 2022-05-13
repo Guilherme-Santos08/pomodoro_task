@@ -25,6 +25,7 @@ const theme = {
     ...redDark,
     ...greenDark,
     ...yellowDark,
+    ...mauveDark,
   },
 }
 
