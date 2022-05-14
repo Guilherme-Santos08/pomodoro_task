@@ -8,6 +8,7 @@ export const Container = styled.div`
   background-color: ${(props) => props.theme.colors.gray5};
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 8px;
+  user-select: none;
 
   @media (max-width: 380px) {
     min-width: 330px;

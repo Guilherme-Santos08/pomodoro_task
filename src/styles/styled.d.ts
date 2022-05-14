@@ -3,6 +3,9 @@ import 'styled-components'
 declare module 'styled-components' {
   export interface DefaultTheme {
     colors: {
+      mauve1: string
+      mauve8: string
+
       sand1: string
 
       red1: string
@@ -10,6 +13,7 @@ declare module 'styled-components' {
       red10: string
 
       gray1: string
+      gray2: string
       gray3: string
       gray4: string
       gray5: string

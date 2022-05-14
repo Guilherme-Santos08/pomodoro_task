@@ -1,5 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState } from 'react'
+import { SelectInterval } from './SelectConfig/SelectInterval'
+import { SelectPriority } from './SelectConfig/SelectPriority'
 import { Container, RenderCreateTasks, RenderTasks } from './styles'
 import { TooglePriority } from './TooglePriority'
 
@@ -66,19 +68,22 @@ export function Task() {
             <h3>Configuração do Pomodoro</h3>
             <div>
               <p>Tempo de foco</p>
-              <p>20 min</p>
+              <SelectPriority defaultValue="25" />
             </div>
+
             <div>
               <p>Pausa curta</p>
-              <p>5 min</p>
+              <SelectPriority defaultValue="5" />
             </div>
+
             <div>
               <p>Pausa longa</p>
-              <p>15 min</p>
+              <SelectPriority defaultValue="15" />
             </div>
+
             <div>
               <p>Sessões</p>
-              <p>4 Intervalor</p>
+              <SelectInterval />
             </div>
           </div>
 
