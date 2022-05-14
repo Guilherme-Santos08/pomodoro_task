@@ -143,4 +143,14 @@ export const RenderCreateTasks = styled.div`
       }
     }
   }
+
+  @media (max-width: 425px) {
+    margin-top: 1.5rem;
+
+    .priority,
+    .settings,
+    .btns {
+      margin-top: 1.5rem;
+    }
+  }
 `

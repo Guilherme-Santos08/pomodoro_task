@@ -66,4 +66,8 @@ export const ToggleGroupItem = styled(ToggleGroupPrimitive.Item)`
     position: relative;
     box-shadow: 0 0 0 2px black;
   }
+
+  @media (max-width: 390px) {
+    max-width: 86px;
+  }
 `

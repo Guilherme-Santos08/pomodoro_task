@@ -19,7 +19,7 @@ export function ChooseTask() {
           </IconButton>
         </ChooseTaskTrigger>
 
-        <ChooseTaskContent alignOffset={-60} align="center">
+        <ChooseTaskContent alignOffset={-75} align="center">
           <Task />
           {/* <ChooseTaskArrow /> */}
         </ChooseTaskContent>

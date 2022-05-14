@@ -72,6 +72,10 @@ export const ChooseTaskContent = styled(DropdownMenuPrimitive.Content)`
       }
     }
   }
+
+  @media (max-width: 425px) {
+    margin-top: -3rem;
+  }
 `
 
 export const ChooseTaskArrow = styled(DropdownMenuPrimitive.Arrow)`
