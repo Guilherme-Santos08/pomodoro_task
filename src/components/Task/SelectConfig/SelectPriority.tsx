@@ -1,5 +1,3 @@
-/* eslint-disable no-unreachable-loop */
-/* eslint-disable no-plusplus */
 import {
   CheckIcon,
   ChevronDownIcon,
@@ -21,10 +19,19 @@ import {
   SelectViewport,
 } from './styles'
 
-export function SelectPriority({ defaultValue = '25' }) {
+type SelectPriorityProps = {
+  // eslint-disable-next-line no-unused-vars
+  onValueChange(value: string): void
+  defaultValue: string
+}
+
+export function SelectPriority({
+  defaultValue,
+  onValueChange,
+}: SelectPriorityProps) {
   return (
     <Box>
-      <Select defaultValue={defaultValue}>
+      <Select defaultValue={defaultValue} onValueChange={onValueChange}>
         <SelectTrigger aria-label="change theme">
           <SelectValue />
           <SelectIcon>

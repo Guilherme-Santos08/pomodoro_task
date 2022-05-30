@@ -19,11 +19,23 @@ import {
   SelectViewport,
 } from './styles'
 
-export function SelectInterval({ defaultValue = '4' }) {
+type SelectIntervalProps = {
+  // eslint-disable-next-line no-unused-vars
+  onValueChange(value: string): void
+  defaultValue: string
+}
+
+export function SelectInterval({
+  defaultValue,
+  onValueChange,
+}: SelectIntervalProps) {
   return (
     <Box>
-      <Select defaultValue={defaultValue}>
-        <SelectTrigger aria-label="change theme" className="interval">
+      <Select defaultValue={defaultValue} onValueChange={onValueChange}>
+        <SelectTrigger
+          aria-label="mudar prioridade da tarefa"
+          className="interval"
+        >
           <SelectValue />
           <SelectIcon>
             <ChevronDownIcon />

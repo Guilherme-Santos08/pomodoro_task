@@ -1,10 +1,19 @@
 import { ToggleGroup, ToggleGroupItem } from './styles'
 
-export function TooglePriority() {
+type TooglePriorityProps = {
+  // eslint-disable-next-line no-unused-vars
+  onValueChange(value: string): void
+  defaultValue: string
+}
+export function TooglePriority({
+  defaultValue,
+  onValueChange,
+}: TooglePriorityProps) {
   return (
     <ToggleGroup
       type="single"
-      defaultValue="down"
+      defaultValue={defaultValue}
+      onValueChange={onValueChange}
       aria-label="Selection prioridade de suas tarefas"
     >
       <ToggleGroupItem
