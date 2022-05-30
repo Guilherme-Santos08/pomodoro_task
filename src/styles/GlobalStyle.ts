@@ -26,6 +26,10 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
+  li {
+    list-style: none;
+  }
+
   img {
     width: 100%;
   }

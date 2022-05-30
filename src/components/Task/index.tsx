@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
 import usePersistedState from '../../hooks/usePersistedState'
@@ -9,66 +9,57 @@ import { TooglePriority } from './TooglePriority'
 
 import { Container, RenderCreateTasks, RenderTasks } from './styles'
 
+type timerConfigProps = {
+  id: string
+  taskValue: string
+  priorityTask: string
+  timeFocus: string
+  shortBreak: string
+  longBreak: string
+  timeTaken: string
+  intervalMinimumTask: string
+  intervalTask: string
+}
+
 export function Task() {
-  const [changeTask, setChangeTask] = useState(false)
-  const [configStorage, setConfigStorage] = usePersistedState<unknown[]>(
-    'configPomodoro',
-    []
-  )
+  const [changeTask, setChangeTask] = useState(true)
+  const [configStorage, setConfigStorage] = usePersistedState<
+    timerConfigProps[]
+  >('configPomodoro', [])
 
   const [timerConfig, setTimerConfig] = useState({
     id: uuidv4(),
+    taskValue: '...',
     priorityTask: 'down',
     timeFocus: '25',
     shortBreak: '5',
     longBreak: '15',
+    timeTaken: '0',
+    intervalMinimumTask: '1',
     intervalTask: '4',
   })
+
   const handleChangeComponente = () => {
     setChangeTask(!changeTask)
   }
 
   const handleConfigPomodoro = (time: string, type: string) => {
-    switch (type) {
-      case 'priorityTask':
-        setTimerConfig((prevState) => ({
-          ...prevState,
-          priorityTask: time,
-        }))
-        break
-      case 'timeFocus':
-        setTimerConfig((prevState) => ({
-          ...prevState,
-          timeFocus: time,
-        }))
-        break
-      case 'shortBreak':
-        setTimerConfig((prevState) => ({
-          ...prevState,
-          shortBreak: time,
-        }))
-        break
-      case 'longBreak':
-        setTimerConfig((prevState) => ({
-          ...prevState,
-          longBreak: time,
-        }))
-        break
-      case 'intervalTask':
-        setTimerConfig((prevState) => ({
-          ...prevState,
-          intervalTask: time,
-        }))
-        break
-
-      default:
-        break
+    const newTest = {
+      ...timerConfig,
+      [type]: time,
+      id: uuidv4(),
     }
+    setTimerConfig(newTest)
+  }
+
+  const onInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    handleConfigPomodoro(event.target.value, 'taskValue')
   }
 
   const saveConfigPomodoro = () => {
     const newTask = [...configStorage, timerConfig]
     setConfigStorage(newTask)
+    handleChangeComponente()
   }
 
   return (
@@ -76,31 +67,29 @@ export function Task() {
       <h2>{changeTask ? 'Criar Tarefa' : 'Tarefas'}</h2>
       {changeTask ? (
         <RenderTasks>
-          <h3
-          // style={
-          //   changeTask
-          //     ? { opacity: 0, visibility: 'hidden' }
-          //     : { opacity: 1, visibility: 'visible' }
-          // }
-          >
-            Todas
-          </h3>
-          <div className="task">
-            <div className="task__priority" />
+          <h3>Todas</h3>
+          <ul>
+            {configStorage.map((config) => (
+              <li className="task" key={config.id}>
+                <div className={`task__priority ${config.priorityTask}`} />
 
-            <div className="task__info">
-              <p title="Constuir o pomodoro">Construir o Pomodoro</p>
-              <span>30 minutos</span>
-            </div>
+                <div className="task__pomodoro">
+                  <div className="task__pomodoro--info">
+                    <p title="Constuir o pomodoro">{config.taskValue}</p>
+                    <span>{config.timeFocus} minutos</span>
+                  </div>
 
-            <div className="task__pomodoro">
-              <div className="task__pomodoro--info">
-                <p>1/4</p>
-                <p>25 min</p>
-              </div>
-              {/* <button type="button">{'|>'}</button> */}
-            </div>
-          </div>
+                  <div className="task__pomodoro--interval">
+                    <p>
+                      {config.intervalMinimumTask}/{config.intervalTask}
+                    </p>
+                    <p>{config.timeTaken} min</p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+
           <button type="button" onClick={handleChangeComponente}>
             Adicionar nova tarefa
           </button>
@@ -108,13 +97,17 @@ export function Task() {
       ) : (
         <RenderCreateTasks>
           <div className="input-box">
-            <label htmlFor="taskName" className="sr-only">
+            <label htmlFor="taskValue" className="sr-only">
               Nome da tarefa
             </label>
             <input
-              id="taskName"
+              id="taskValue"
+              name="taskValue"
               type="text"
               placeholder="Criar uma Tarefa"
+              defaultValue=""
+              autoComplete="off"
+              onChange={onInputChange}
               required
             />
           </div>

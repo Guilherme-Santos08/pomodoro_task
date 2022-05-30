@@ -22,6 +22,10 @@ export const RenderTasks = styled.div`
     margin-bottom: 0.5rem;
   }
 
+  .task + .task {
+    margin-top: 0.5rem;
+  }
+
   .task {
     display: flex;
     align-items: center;
@@ -31,33 +35,50 @@ export const RenderTasks = styled.div`
     border-radius: 8px;
     border: 1px solid gray;
 
+    .down {
+      background-color: ${(props) => props.theme.colors.green7};
+      border: 1px solid ${(props) => props.theme.colors.green10};
+    }
+
+    .mid {
+      background-color: ${(props) => props.theme.colors.yellow7};
+      border: 1px solid ${(props) => props.theme.colors.yellow10};
+    }
+
+    .up {
+      background-color: ${(props) => props.theme.colors.red7};
+      border: 1px solid ${(props) => props.theme.colors.red10};
+    }
+
     &__priority {
       width: 30px;
       height: 30px;
-      border: 2px solid hsl(356deg 83% 48%);
       border-radius: 99rem;
-      background-color: rgb(181 28 28 / 39%);
-    }
-
-    &__info {
-      width: 160px;
-      margin: 0 1rem;
-      line-height: 18px;
-      p {
-        font-size: 0.9rem;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-      }
-      span {
-        color: ${(props) => props.theme.colors.gray11};
-        font-size: 0.8rem;
-      }
     }
 
     &__pomodoro {
-      color: ${(props) => props.theme.colors.gray11};
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       &--info {
+        width: 160px;
+        margin: 0 1rem;
+        line-height: 18px;
+        p {
+          font-size: 0.9rem;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+        span {
+          color: ${(props) => props.theme.colors.gray11};
+          font-size: 0.8rem;
+        }
+      }
+      &--interval {
+        color: ${(props) => props.theme.colors.gray11};
+
         font-size: 0.75rem;
         text-align: center;
         line-height: 16px;
