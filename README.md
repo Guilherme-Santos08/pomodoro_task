@@ -38,21 +38,15 @@
 <!-- ABOUT THE PROJECT -->
 ## Sobre o Projeto
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-....
-
-
-<p align="right">(<a href="#top">Voltar ao Topo</a>)</p>
-
+<div align="center">
+  <img src="https://i.imgur.com/IjFjhK5.gif" width="60%"/>
+</div>
 
 
 ### Construido com
 * [Next.js](https://nextjs.org/)
 * [React.js](https://reactjs.org/)
 * [Radix](https://www.radix-ui.com/)
-
-<p align="right">(<a href="#top">Voltar ao Topo</a>)</p>
-
 
 
 <!-- GETTING STARTED -->
@@ -86,9 +80,7 @@ Para poder rodar o programa sem problemas, vou indicar softwares que você preci
    yarn dev
    ```
   
-
-<p align="right">(<a href="#top">Voltar ao Topo</a>)</p>
-
+  
 <!-- ## Tutorial de como usar
 
 <p align="right">(<a href="#top">Voltar ao Topo</a>)</p>
@@ -100,7 +92,6 @@ Para poder rodar o programa sem problemas, vou indicar softwares que você preci
 
 - [x] Add Changelog
 
-<p align="right">(<a href="#top">Voltar ao Topo</a>)</p>
 
 <!-- LICENSE -->
 <!-- ## License
@@ -118,7 +109,6 @@ Guilherme Ribeiro [linkedin](https://www.linkedin.com/in/guilherme-ribeiro08/) -
 
 Projeto : [https://pomodoro-task-ten.vercel.app/](https://github.com/your_username/repo_name)
 
-<p align="right">(<a href="#top">Voltar ao topo</a>)</p>
 
 
 
@@ -129,7 +119,6 @@ Projeto : [https://pomodoro-task-ten.vercel.app/](https://github.com/your_userna
 * [ReactIcons](https://react-icons.github.io/react-icons/)
 * [GoogleFonts](https://fonts.google.com/)
 
-<p align="right">(<a href="#top">Voltar ao Topo</a>)</p>
 
 
 
