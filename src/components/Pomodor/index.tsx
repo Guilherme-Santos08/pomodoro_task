@@ -1,6 +1,8 @@
+import { Box, Flex, Text } from '@chakra-ui/react'
 import Head from 'next/head'
 import { FiSkipForward } from 'react-icons/fi'
 import { useTime } from '../../hooks/useTime'
+import { ButtonStartAndStop } from '../ButtonStartAndStop'
 import { Button, Container } from './styles'
 
 export function Pomodoro() {
@@ -25,46 +27,78 @@ export function Pomodoro() {
       <Head>
         <title>{`${timer} - ${mode}`}</title>
       </Head>
-      <Container>
-        <div className="info">
-          <p>Construindo Pomodoro</p>
+      <Flex
+        alignItems="center"
+        flexDir="column"
+        w="400px"
+        marginTop="6rem"
+        borderRadius="8px"
+        backgroundColor="gray.700"
+        color="white"
+      >
+        <Flex
+          alignItems="center"
+          justifyContent="space-between"
+          className="info"
+          width="100%"
+          height="30px"
+          p="1.85rem"
+          borderBottom="1px solid rgb(181 28 28 / 59%)"
+        >
+          <Text>Construindo Pomodoro</Text>
 
-          <div>
-            <p>
+          <Box>
+            <Text fontSize="0.9rem" textAlign="center" lineHeight="16px">
               {countRest}/{maxRest}
-            </p>
-          </div>
-        </div>
+            </Text>
+          </Box>
+        </Flex>
 
-        <div className="separetor">
-          <p>{mode}</p>
-        </div>
+        <Box mt="0.9rem">
+          <Text fontSize="1.4rem" fontFamily="Rajdhani">
+            {mode}
+          </Text>
+        </Box>
 
-        <div className="count">
-          <div className="count__info">
-            <time>{timer}</time>
-          </div>
-          <div className="count__buttons">
-            <Button
-              className={activePomodoro ? 'pomodoro-active' : ''}
-              type="button"
-              onClick={
-                activePomodoro ? handleResetPomodoro : handleStartAndStop
-              }
+        <Flex
+          flexDir="column"
+          alignItems="center"
+          pt="0.5rem"
+          pb="1.5rem"
+          px="1.5rem"
+          className="count"
+        >
+          <Box>
+            <Box
+              as="time"
+              letterSpacing="4px"
+              fontSize="3.5rem"
+              fontFamily="Rajdhani"
+              display="block"
+              minW="150px !important"
             >
-              {activePomodoro ? 'Parar' : 'Iniciar'}
-            </Button>
-            <Button
-              skip
-              type="button"
-              className={activePomodoro ? 'show-skip' : ''}
-              onClick={handleSkipMode}
-            >
-              <FiSkipForward />
-            </Button>
-          </div>
-        </div>
-      </Container>
+              {timer}
+            </Box>
+          </Box>
+
+          <Flex position="relative" alignItems="flex-end">
+            <ButtonStartAndStop
+              skip={false}
+              activePomodoro={activePomodoro}
+              handleResetPomodoro={handleResetPomodoro}
+              handleStartAndStop={handleStartAndStop}
+            />
+            {activePomodoro && (
+              <ButtonStartAndStop
+                skip
+                activePomodoro={activePomodoro}
+                handleResetPomodoro={handleResetPomodoro}
+                handleStartAndStop={handleStartAndStop}
+              />
+            )}
+          </Flex>
+        </Flex>
+      </Flex>
     </>
   )
 }

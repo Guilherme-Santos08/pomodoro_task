@@ -1,32 +1,29 @@
-import {
-  grayDark,
-  greenDark,
-  indigoDark,
-  redDark,
-  sandDark,
-  violetDark,
-  skyDark,
-  blueDark,
-  mauveDark,
-  yellowDark,
-} from '@radix-ui/colors'
+import { extendTheme } from '@chakra-ui/react'
 
-const theme = {
-  colors: {
-    ...sandDark,
-    ...grayDark,
-    ...violetDark,
-    ...indigoDark,
-    ...greenDark,
-    ...redDark,
-    ...skyDark,
-    ...blueDark,
-    ...mauveDark,
-    ...redDark,
-    ...greenDark,
-    ...yellowDark,
-    ...mauveDark,
+export const theme = extendTheme({
+  // colors: {},
+  fonts: {
+    heading: 'Inter',
+    body: 'Inter',
   },
-}
-
-export default theme
+  components: {
+    Text: {
+      baseStyle: {
+        // fontSize: 'lg',
+        // fontWeight: 'normal',
+      },
+    },
+    Button: {
+      defaultProps: {
+        // colorScheme: 'orange',
+      },
+    },
+  },
+  styles: {
+    global: {
+      body: {
+        bg: 'gray.900',
+      },
+    },
+  },
+})
