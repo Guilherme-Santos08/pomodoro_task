@@ -1,44 +1,16 @@
-import { Button, Icon, IconButton } from '@chakra-ui/react'
-import { FiSkipForward } from 'react-icons/fi'
+import { Button } from '@chakra-ui/react'
 
 type ButtonStartAndStopProps = {
   activePomodoro: boolean
   handleResetPomodoro?: () => void
   handleStartAndStop?: () => void
-  skip: boolean
-  handleSkipMode?: () => void
 }
 
 export function ButtonStartAndStop({
   activePomodoro,
   handleResetPomodoro,
   handleStartAndStop,
-  skip,
-  handleSkipMode,
 }: ButtonStartAndStopProps) {
-  if (skip) {
-    return (
-      <IconButton
-        fontSize="1.5rem"
-        color="white"
-        position="absolute"
-        right="-2.2rem"
-        bottom="0"
-        width="auto"
-        bg="transparent"
-        p="0"
-        opacity={activePomodoro ? '0' : '1'}
-        visibility={activePomodoro ? 'visible' : 'hidden'}
-        boxShadow="visible"
-        _hover={{
-          bg: 'transparent',
-        }}
-        onClick={handleSkipMode}
-        aria-label="Pular sessão de pomodoro"
-        icon={<Icon as={FiSkipForward} />}
-      />
-    )
-  }
   return (
     <Button
       color="white"

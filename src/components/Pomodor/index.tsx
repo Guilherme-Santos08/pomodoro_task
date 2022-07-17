@@ -1,9 +1,9 @@
 import { Box, Flex, Text } from '@chakra-ui/react'
 import Head from 'next/head'
-import { FiSkipForward } from 'react-icons/fi'
+
 import { useTime } from '../../hooks/useTime'
-import { ButtonStartAndStop } from '../ButtonStartAndStop'
-import { Button, Container } from './styles'
+import { ButtonSkip } from '../ButtonsPomodoro/ButtonSkip'
+import { ButtonStartAndStop } from '../ButtonsPomodoro/ButtonStartAndStop'
 
 export function Pomodoro() {
   const {
@@ -83,17 +83,14 @@ export function Pomodoro() {
 
           <Flex position="relative" alignItems="flex-end">
             <ButtonStartAndStop
-              skip={false}
               activePomodoro={activePomodoro}
               handleResetPomodoro={handleResetPomodoro}
               handleStartAndStop={handleStartAndStop}
             />
             {activePomodoro && (
-              <ButtonStartAndStop
-                skip
+              <ButtonSkip
                 activePomodoro={activePomodoro}
-                handleResetPomodoro={handleResetPomodoro}
-                handleStartAndStop={handleStartAndStop}
+                handleSkipMode={handleSkipMode}
               />
             )}
           </Flex>
